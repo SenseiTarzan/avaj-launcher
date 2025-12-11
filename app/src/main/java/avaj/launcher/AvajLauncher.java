@@ -19,13 +19,13 @@ public class AvajLauncher {
             var scenarioParser = new ScenerioParser(args[0]);
             Simulator.run(scenarioParser);
         } catch (ScenerioException e) {
-            System.out.println("Scenario Error: " + e.getMessage());
+            System.err.println("Scenario Error: " + e.getMessage());
         }
         catch (NumberFormatException e) {
-                System.out.println("Number Format Error: " + e.getMessage());
+                System.err.println("Number Format Error: " + e.getMessage());
         }
         catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }
