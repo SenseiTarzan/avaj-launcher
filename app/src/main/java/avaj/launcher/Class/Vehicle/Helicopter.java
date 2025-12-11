@@ -21,23 +21,23 @@ public class Helicopter extends Aircraft{
             case "SUN":
                 this.coordinates.addLongitude(10);
                 this.coordinates.addHeight(2);
-                System.out.println("Helicopter#" + this.getName() + "(" + this.getId() + "): It's a sunny day, let's enjoy the view!");
+                System.out.println(this + ": It's a sunny day, let's enjoy the view!");
                 break;
             case "RAIN":
                 this.coordinates.addLongitude(5);
-                System.out.println("Helicopter#" + this.getName() + "(" + this.getId() + "): Rain is making it hard to fly!");
+                System.out.println(this + ": Rain is making it hard to fly!");
                 break;
             case "FOG":
                 this.coordinates.addLongitude(1);
-                System.out.println("Helicopter#" + this.getName() + "(" + this.getId() + "): Can't see anything in this fog!");
+                System.out.println(this + ": Can't see anything in this fog!");
                 break;
             case "SNOW":
                 this.coordinates.subtractHeight(12);
-                System.out.println("Helicopter#" + this.getName() + "(" + this.getId() + "): It's snowing, we need to be careful!");
+                System.out.println(this + ": It's snowing, we need to be careful!");
                 break;
         }
         if(this.coordinates.isOnGround()) {
-            System.out.println("Helicopter#" + this.getName() + "(" + this.getId() + ") landing.");
+            System.out.println(this + ": Landing.");
             weatherTower.unregister(this);
         }
     }

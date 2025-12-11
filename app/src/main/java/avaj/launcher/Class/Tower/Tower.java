@@ -1,19 +1,14 @@
 package avaj.launcher.Class.Tower;
 
-import java.io.Console;
 import java.util.ArrayList;
-
 import java.util.List;
 import avaj.launcher.Class.Vehicle.Flyable;
-import avaj.launcher.Class.Vehicle.JetPlane;
 
 public class Tower {
 
-    private List<Flyable> observers;
+    private List<Flyable> observers = new ArrayList<Flyable>();
 
-    public Tower() {
-        observers = new ArrayList<Flyable>();
-    }
+    public Tower() {}
 
     public void register(Flyable flyable) {
         observers.add(flyable);

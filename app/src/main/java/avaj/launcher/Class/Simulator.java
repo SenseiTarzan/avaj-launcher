@@ -1,7 +1,5 @@
 package avaj.launcher.Class;
 
-import java.util.List;
-
 import avaj.launcher.Class.Tower.WeatherTower;
 import avaj.launcher.Parser.ScenerioParser;
 import avaj.launcher.Class.Vehicle.Flyable;
