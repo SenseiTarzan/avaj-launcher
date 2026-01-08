@@ -42,6 +42,9 @@ public class ScenerioParser {
                 if (simulations < 0) {
                     throw new ScenerioException("Number of simulations must be non-negative.");
                 }
+                if(simulations == 0) {
+                    throw new ScenerioException("Number of simulations is zero.");
+                }
             } catch (NumberFormatException e) {
                 throw new ScenerioException("Invalid number of simulations: " + line);
             }
@@ -64,8 +67,6 @@ public class ScenerioParser {
                     height = Integer.parseInt(parts[4]);
                     if (height < 0) {
                         throw new ScenerioException("Height cannot be negative: " + line);
-                    }else if (height > 100) {
-                        throw new ScenerioException("Height cannot exceed 100: " + line);
                     }
                 } catch (NumberFormatException e) { 
                     flyables.clear();
@@ -73,6 +74,9 @@ public class ScenerioParser {
                 }
                 Flyable flyable = AircraftFactory.getInstance().newAircraft(type, name, longitude, latitude, height);
                 flyables.add(flyable);
+            }
+            if(flyables.isEmpty()) {
+                throw new ScenerioException("No aircrafts to simulate.");
             }
             this.numberOfSimulations = simulations;
             this.flyables = flyables;

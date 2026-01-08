@@ -3,20 +3,33 @@
  */
 package avaj.launcher;
 
+import org.jspecify.annotations.NonNull;
+
 import avaj.launcher.Class.Simulator;
+import avaj.launcher.Class.Tower.Tower.Dashboard;
 import avaj.launcher.Parser.ScenerioParser;
 import avaj.launcher.Parser.ScenerioParser.ScenerioException;
 
 public class AvajLauncher {
+    @NonNull
+    private static Dashboard dashboard;
+
+    public static @NonNull Dashboard getDashboard() {
+        if(dashboard == null) {
+            throw new IllegalStateException("Dashboard has not been initialized.");
+        }
+        return dashboard;
+    }
 
     public static void main(String[] args) {
         var argc = args.length;
         if (argc != 1) {
-            System.out.println("Usage: java -jar avaj-launcher.jar <scenario file>");
+            System.err.println("Usage: java -jar avaj-launcher.jar <scenario file>");
             return;
         }
         try {
             var scenarioParser = new ScenerioParser(args[0]);
+            dashboard = new Dashboard("simulation.txt");
             Simulator.run(scenarioParser);
         } catch (ScenerioException e) {
             System.err.println("Scenario Error: " + e.getMessage());

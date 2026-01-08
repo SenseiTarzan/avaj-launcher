@@ -1,5 +1,6 @@
 package avaj.launcher.Class.Vehicle;
 
+import avaj.launcher.AvajLauncher;
 import avaj.launcher.Class.Coordinates;
 
 public class Aircraft extends Flyable {
@@ -32,7 +33,7 @@ public class Aircraft extends Flyable {
             throw new IllegalStateException("WeatherTower is not registered.");
         }
         String weather = weatherTower.getWeather(coordinates);
-        System.out.println("Aircraft " + name + " (ID: " + id + ") reports weather: " + weather);
+        AvajLauncher.getDashboard().log("Aircraft " + name + " (ID: " + id + ") reports weather: " + weather);
     }
 
     @Override

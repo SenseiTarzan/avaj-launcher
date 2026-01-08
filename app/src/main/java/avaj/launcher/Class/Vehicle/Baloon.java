@@ -1,5 +1,6 @@
 package avaj.launcher.Class.Vehicle;
 
+import avaj.launcher.AvajLauncher;
 import avaj.launcher.Class.Coordinates;
 
 public final class Baloon extends Aircraft {
@@ -18,24 +19,24 @@ public final class Baloon extends Aircraft {
             case "SUN":
                 this.coordinates.addLongitude(2);
                 this.coordinates.addHeight(4);
-                System.out.println(this + ": Let's enjoy the good weather and take some pics.");
+                AvajLauncher.getDashboard().log(this + ": Let's enjoy the good weather and take some pics.");
                 break;
             case "RAIN": 
                 this.coordinates.subtractHeight(5);
-                System.out.println(this + ": Damn you rain! You messed up my balloon.");
+                AvajLauncher.getDashboard().log(this + ": Damn you rain! You messed up my balloon.");
                 break;
             case "FOG":
                 this.coordinates.subtractHeight(3);
-                System.out.println(this + ": Can't see anything in this fog.");
+                AvajLauncher.getDashboard().log(this + ": Can't see anything in this fog.");
                 break;
             case "SNOW":
                 this.coordinates.subtractHeight(15);
-                System.out.println(this + ": It's snowing. We're gonna crash.");
+                AvajLauncher.getDashboard().log(this + ": It's snowing. We're gonna crash.");
                 break;
             }
         
         if(this.coordinates.isOnGround()) {
-            System.out.println(this + ": Landing.");
+            AvajLauncher.getDashboard().log(this + ": Landing.");
             weatherTower.unregister(this);
         }
     }
