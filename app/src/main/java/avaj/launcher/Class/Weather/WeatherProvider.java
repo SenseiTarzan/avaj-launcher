@@ -15,10 +15,7 @@ public class WeatherProvider {
     public String getCurrentWeather(Coordinates p_coordinates) {
         int seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
         int index = seed % 4;
-        if (index < 0) {
-            index += 4;
-        }
-        return weather[index];
+        return weather[Math.abs(index)];
     }
     
 }
