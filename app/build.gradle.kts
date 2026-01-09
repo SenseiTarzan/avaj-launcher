@@ -47,7 +47,16 @@ tasks.jar {
     }
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+// Tâche personnalisée pour exécuter l'application avec un fichier de scénario
+tasks.register<JavaExec>("runScenario") {
+    group = "application"
+    description = "Exécute l'application avec un fichier de scénario spécifié"
+    
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set("avaj.launcher.AvajLauncher")
+    workingDir = project.rootDir  // Définit le répertoire de travail sur la racine du projet
+    
+    // Le fichier de scénario doit être passé via la propriété 'scenarioFile'
+    // Exemple: ./gradlew runScenario -PscenarioFile=scenario.txt
+    args(findProperty("scenarioFile") ?: "scenario.txt")
 }

@@ -9,4 +9,5 @@ build
 
 bin
 
-scenario.txt
+*.txt
+!exemple/*
