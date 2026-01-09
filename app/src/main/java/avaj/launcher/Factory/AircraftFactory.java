@@ -11,7 +11,7 @@ public final class AircraftFactory {
 
     private static final AircraftFactory instance = new AircraftFactory();
 
-    private AtomicLong idCounter = new AtomicLong(0);
+    private AtomicLong idCounter = new AtomicLong(1);
 
     private static long getNextId() {
         return instance.idCounter.getAndIncrement();

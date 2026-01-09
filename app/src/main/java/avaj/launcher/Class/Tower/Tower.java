@@ -4,8 +4,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jspecify.annotations.Nullable;
-
 import avaj.launcher.AvajLauncher;
 import avaj.launcher.Class.Vehicle.Flyable;
 
@@ -33,9 +31,7 @@ public class Tower {
     }
 
     public static class Dashboard {
-        @Nullable
         private FileWriter writer;
-        @Nullable
         private String filename;
         public Dashboard() {}
 

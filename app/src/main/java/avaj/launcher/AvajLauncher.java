@@ -3,18 +3,15 @@
  */
 package avaj.launcher;
 
-import org.jspecify.annotations.NonNull;
-
 import avaj.launcher.Class.Simulator;
 import avaj.launcher.Class.Tower.Tower.Dashboard;
 import avaj.launcher.Parser.ScenerioParser;
 import avaj.launcher.Parser.ScenerioParser.ScenerioException;
 
 public class AvajLauncher {
-    @NonNull
     private static Dashboard dashboard;
 
-    public static @NonNull Dashboard getDashboard() {
+    public static Dashboard getDashboard() {
         if(dashboard == null) {
             throw new IllegalStateException("Dashboard has not been initialized.");
         }

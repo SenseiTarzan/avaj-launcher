@@ -14,6 +14,7 @@ public final class Baloon extends Aircraft {
         if(weatherTower == null) {
             throw new IllegalStateException("WeatherTower is not registered.");
         }
+
         String weather = weatherTower.getWeather(coordinates);
         switch (weather) {
             case "SUN":
@@ -33,7 +34,7 @@ public final class Baloon extends Aircraft {
                 this.coordinates.subtractHeight(15);
                 AvajLauncher.getDashboard().log(this + ": It's snowing. We're gonna crash.");
                 break;
-            }
+        }
         
         if(this.coordinates.isOnGround()) {
             AvajLauncher.getDashboard().log(this + ": Landing.");

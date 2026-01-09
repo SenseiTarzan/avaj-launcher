@@ -22,9 +22,6 @@ dependencies {
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    // This dependency is used by the application.
-    implementation(libs.guava)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -59,4 +56,11 @@ tasks.register<JavaExec>("runScenario") {
     // Le fichier de scénario doit être passé via la propriété 'scenarioFile'
     // Exemple: ./gradlew runScenario -PscenarioFile=scenario.txt
     args(findProperty("scenarioFile") ?: "scenario.txt")
+}
+
+// Tâche temporaire pour afficher le classpath (utilisée par le Makefile)
+tasks.register("printClasspath") {
+    doLast {
+        println(sourceSets.main.get().runtimeClasspath.asPath)
+    }
 }

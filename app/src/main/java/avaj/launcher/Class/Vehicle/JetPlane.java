@@ -32,8 +32,13 @@ public final class JetPlane extends Aircraft {
             case "SNOW":
                 this.coordinates.subtractHeight(7);
                 AvajLauncher.getDashboard().log(this + ": OMG! winter is coming!");
+                if(this.coordinates.isOnGround()) {
+                    AvajLauncher.getDashboard().log(this + ": Landing.");
+                    weatherTower.unregister(this);
+                }
                 break;
         }
+
         if(this.coordinates.isOnGround()) {
             AvajLauncher.getDashboard().log(this + ": Landing.");
             weatherTower.unregister(this);

@@ -1,5 +1,8 @@
 package avaj.launcher.Class.Weather;
 
+import java.time.Instant;
+import java.util.Date;
+
 import avaj.launcher.Class.Coordinates;
 
 public class WeatherProvider {
@@ -13,8 +16,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates p_coordinates) {
-        int seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
-        int index = seed % 4;
+        
+        long seed = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight() + new Date().getTime();
+        int index = (int)(seed % 4);
         return weather[Math.abs(index)];
     }
     
